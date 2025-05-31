@@ -7,13 +7,10 @@ A user-friendly **desktop application** built with **Python** and **PyQt6** for 
 ##  📖 About the Project
 The PyQt6 Password Generator is a desktop application that helps users create strong, secure, and personalized passwords. With its clean and intuitive interface, the application allows users to:
 
-Choose the length and types of characters to include.
-
-Enable validation to ensure password compliance.
-
-Visually assess password strength.
-
-Edit the generated password manually if needed.
+- Choose the length and types of characters to include. 
+- Enable validation to ensure password compliance. 
+- Visually assess password strength. 
+- Edit the generated password manually if needed.
 
 It’s perfect for users who need to create strong passwords for websites, accounts, or development work.
 
