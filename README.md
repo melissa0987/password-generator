@@ -14,7 +14,7 @@ A simple and user-friendly **desktop application** built using **Python** and **
 ---
 
 ## 📸 Screenshots
-![Main Window](screenshots/image.png)
+![screenshot](image.png)
 
 ---
 
