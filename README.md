@@ -6,14 +6,15 @@ A simple and user-friendly **desktop application** built using **Python** and **
 
 ## 👩‍💻 Developer Information
 
-- **Name:** Melissa [Your Last Name]
+- **Name:** Melissa Louise Bangloy 
+- **Student ID:** 1468444
 - **Course:** 420-942-VM – Application Development 1: Desktop
 - **Institution:** Vanier College
 
 ---
 
 ## 📸 Screenshots
-![Main Window](screenshots\image.png)
+![Main Window](screenshots/image.png)
 
 ---
 
