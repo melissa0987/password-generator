@@ -7,6 +7,7 @@ from PyQt6.QtWidgets import (
     QSpinBox, QVBoxLayout, QHBoxLayout, QLineEdit, QMessageBox
 )
 from PyQt6.QtCore import Qt
+# from PyQt6.QtGui import QColor
 from genpass import Config, get_chars, gen_password, validate_password
 
 
@@ -19,7 +20,7 @@ class PasswordGeneratorApp(QWidget):
         self.spinbox_label = QLabel("Password Length:")
         self.length_spinbox = QSpinBox()
         self.setGeometry(120, 100, 400, 300)  # x, y, width, height
-        self.length_spinbox.setValue(12) #default password length
+        self.length_spinbox.setValue(16) #default password length
         self.length_spinbox.setRange(6, 64) #min=6, max=64
 
         #options labels
@@ -37,6 +38,7 @@ class PasswordGeneratorApp(QWidget):
 
         self.password_display = QLineEdit()
         self.password_display.setEchoMode(QLineEdit.EchoMode.Password)
+        
 
         # Layouts
         main_layout = QVBoxLayout()
@@ -44,6 +46,11 @@ class PasswordGeneratorApp(QWidget):
         length_layout.addWidget(self.spinbox_label)
         length_layout.addWidget(self.length_spinbox)
         self.spinbox_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        #strencth indicator
+        self.strength_label = QLabel("Strength: N/A")
+        self.strength_label.setStyleSheet("font-weight: bold;")
+        
 
         #options layout
         options_layout = QVBoxLayout()
@@ -65,6 +72,7 @@ class PasswordGeneratorApp(QWidget):
         main_layout.addLayout(length_layout)
         main_layout.addLayout(options_layout)
         main_layout.addWidget(self.password_display)
+        main_layout.addWidget(self.strength_label)
         main_layout.addLayout(button_layout)
 
         self.setLayout(main_layout)
@@ -79,6 +87,8 @@ class PasswordGeneratorApp(QWidget):
         self.copy_button.clicked.connect(self.copy_password)
         self.clear_button.clicked.connect(lambda: self.password_display.clear())
         self.show_checkbox.stateChanged.connect(self.toggle_password_visibility)
+
+        
         
         
 
@@ -105,7 +115,12 @@ class PasswordGeneratorApp(QWidget):
                                 "Password doesn't meet all selected criteria.")
             return
 
-        self.password_display.setText(password)
+        self.password_display.setText(password)  
+
+        #strength
+        strength, color = self.evaluate_strength(password)
+        self.strength_label.setText(f"Strength: {strength}")
+        self.strength_label.setStyleSheet(f"color: {color}; font-weight: bold;")
 
     def copy_password(self):
         clipboard = QApplication.clipboard()
@@ -118,6 +133,24 @@ class PasswordGeneratorApp(QWidget):
         else:
             self.password_display.setEchoMode(QLineEdit.EchoMode.Password)
 
+    #mrthod for strength indicator
+    def evaluate_strength(self, password):
+        length = len(password)
+        has_lower = any(c.islower() for c in password)
+        has_upper = any(c.isupper() for c in password)
+        has_digit = any(c.isdigit() for c in password)
+        has_symbol = any(c in "!@#$%^&*()-_=+[{]};:'\",<.>/?\\|" for c in password)
+
+        score = sum([has_lower, has_upper, has_digit, has_symbol])
+
+        # Determine strength
+        if length >= 16 and score == 4:
+            return "Strong", "green"
+        elif length >= 12 and score >= 3:
+            return "Medium", "orange"
+        else:
+            return "Weak", "red"
+        
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

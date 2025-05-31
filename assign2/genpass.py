@@ -42,17 +42,16 @@ def gen_password(chars, length):
 
 
 def validate_password(password, config):
-    if config.validate:  # If validation is ON
-        if config.lower:
-            if not any(c in string.ascii_lowercase for c in password):
-                return False
-        if config.upper:
-            if not any(c in string.ascii_uppercase for c in password):
-                return False
-        if config.digits:
-            if not any(c in string.digits for c in password):
-                return False
-        if config.symbols:
-            if not any(c in string.punctuation for c in password):
-                return False
+    if not config.validate:
+        return True  # No need to validate
+
+    if config.lower and not any(c.islower() for c in password):
+        return False
+    if config.upper and not any(c.isupper() for c in password):
+        return False
+    if config.digits and not any(c.isdigit() for c in password):
+        return False
+    if config.symbols and not any(c in string.punctuation for c in password):
+        return False
+
     return True

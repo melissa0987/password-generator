@@ -4,15 +4,6 @@ A simple and user-friendly **desktop application** built using **Python** and **
 
 ---
 
-## 👩‍💻 Developer Information
-
-- **Name:** Melissa Louise Bangloy 
-- **Student ID:** 1468444
-- **Course:** 420-942-VM – Application Development 1: Desktop
-- **Institution:** Vanier College
-
----
-
 ## 📸 Screenshots
 ![screenshot](image.png)
 
@@ -89,4 +80,7 @@ python main.py
 ---
 
 ##  📝 License
-This project is intended for academic use as part of coursework at Vanier College.
+This project is licensed under the MIT License.
+You are free to use, modify, and distribute this software with proper attribution.
+
+📝 Note: This project was developed for academic purposes as part of coursework at Vanier College.
