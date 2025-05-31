@@ -45,7 +45,7 @@ class PasswordGeneratorApp(QWidget):
         length_layout = QHBoxLayout()
         length_layout.addWidget(self.spinbox_label)
         length_layout.addWidget(self.length_spinbox)
-        self.spinbox_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.spinbox_label.setAlignment(Qt.AlignmentFlag.AlignRight)
 
         #strencth indicator 
         self.strength_label = QLabel("Strength:")
@@ -55,10 +55,15 @@ class PasswordGeneratorApp(QWidget):
         self.strength_bar.setTextVisible(False)
 
         # Set font size for better visibility
+        # label
+        font = self.spinbox_label.font()
+        font.setPointSize(12)
+        self.spinbox_label.setFont(font)
+
+        #password char display
         font = self.password_display.font()
         font.setPointSize(10)
         self.password_display.setFont(font)
-        
 
         #options layout
         options_layout = QVBoxLayout()
