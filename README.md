@@ -69,3 +69,22 @@ pip install PyQt6
 ```bash
 python main.py
 ```
+
+
+---
+
+##  🧪 Example Use Case
+- Set length to 16.
+
+- Enable all character types and validation.
+
+- Click Generate.
+
+- If validation passes, the password will be displayed.
+
+- Use Copy to copy the password or Clear to remove it.
+
+---
+
+##  📝 License
+This project is intended for academic use as part of coursework at Vanier College.
