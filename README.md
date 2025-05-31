@@ -1,39 +1,42 @@
 # 🔐 PyQt6 Password Generator
 
-A simple and user-friendly **desktop application** built using **Python** and **PyQt6** that generates secure, customizable passwords with validation options.
+A user-friendly **desktop application** built with **Python** and **PyQt6** for generating secure, customizable passwords with validation and strength indicators.
 
 ---
 
-## 📸 Screenshots
-![screenshot](image.png)
+## 📸 Screenshot
+
+![screenshot](assign2/screenshots/image.png)
 
 ---
 
 ## ✨ Features
 
-- Choose **password length** (6–64 characters)
-- Toggle inclusion of:
-  - ✅ Lowercase letters (a–z)
-  - ✅ Uppercase letters (A–Z)
-  - ✅ Digits (0–9)
-  - ✅ Symbols (e.g., ~!@#$%^&*)
-- Enable **password validation** to ensure at least one of each selected type is included
-- Show/hide password
-- Copy password to clipboard
-- Clear password field
-- Default selections: lowercase, uppercase, and digits
+- 🔢 Select **password length** (6–64 characters)
+- ✅ Toggle inclusion of:
+  - Lowercase letters (a–z)
+  - Uppercase letters (A–Z)
+  - Digits (0–9)
+  - Symbols (e.g., ~!@#$%^&*)
+- 🔒 **Enable validation** to ensure the password includes at least one of each selected character type
+- 👁️ Show/hide password
+- 📋 Copy password to clipboard
+- ❌ Clear password field
+- 🟢 Password **strength indicator** with visual progress bar (Weak / Medium / Strong)
+- 🧠 Default selections: lowercase, uppercase, and digits
 
 ---
 
 ## 🧰 Requirements
 
-- Python 3.10+
+- Python 3.10 or higher
 - PyQt6
 
-## 🚀 How to Run the Program
+---
+
+## 🚀 How to Run the Application
 
 ### Step 1: Clone the Repository
-
 ```bash
 
 git clone https://github.com/melissa0987/password-generator.git
@@ -67,15 +70,17 @@ python main.py
 ---
 
 ##  🧪 Example Use Case
-- Set length to 16.
+1. Set the desired password length (e.g., 16).
 
-- Enable all character types and validation.
+2. Select which character types to include.
 
-- Click Generate.
+3. Enable "Validate password" if you want the password to meet all selected criteria.
 
-- If validation passes, the password will be displayed.
+4 Click "Generate".
 
-- Use Copy to copy the password or Clear to remove it.
+5. If validation passes, the password will appear.
+
+6. Use "Copy" to copy it to clipboard or "Clear" to reset the field.
 
 ---
 
