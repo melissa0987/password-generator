@@ -19,7 +19,7 @@ class PasswordGeneratorApp(QWidget):
         # Widgets
         self.spinbox_label = QLabel("Password Length:")
         self.length_spinbox = QSpinBox()
-        self.setGeometry(120, 100, 400, 300)  # x, y, width, height
+        self.setGeometry(120, 100, 560, 300)  # x, y, width, height
         self.length_spinbox.setValue(16) #default password length
         self.length_spinbox.setRange(6, 64) #min=6, max=64
 
@@ -53,6 +53,11 @@ class PasswordGeneratorApp(QWidget):
         self.strength_bar.setRange(0, 100)
         self.strength_bar.setValue(0)
         self.strength_bar.setTextVisible(False)
+
+        # Set font size for better visibility
+        font = self.password_display.font()
+        font.setPointSize(10)
+        self.password_display.setFont(font)
         
 
         #options layout
@@ -78,7 +83,7 @@ class PasswordGeneratorApp(QWidget):
         main_layout.addWidget(self.strength_label)
         main_layout.addWidget(self.strength_bar)
         main_layout.addLayout(button_layout)
-
+        
         self.setLayout(main_layout)
 
         #lower, upper, digits selected by default
@@ -124,9 +129,8 @@ class PasswordGeneratorApp(QWidget):
          #strength
         strength_level, color, value = self.evaluate_strength(password)
         self.strength_bar.setValue(value)
-        self.strength_bar.setStyleSheet(f"QProgressBar::chunk {{ background-color: {color}; }}")
-        self.strength_label.setText(f"Strength: {strength_level}")
-
+        self.strength_bar.setStyleSheet(f"QProgressBar::chunk {{ background-color: {color};  }}")
+        self.strength_label.setText(f"<b>Strength:<span style='color:{color}'> {strength_level} </span></b>")
 
     def copy_password(self):
         clipboard = QApplication.clipboard()
