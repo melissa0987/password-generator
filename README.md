@@ -44,19 +44,22 @@ A simple and user-friendly **desktop application** built using **Python** and **
 ### Step 1: Clone the Repository
 
 ```bash
+
 git clone https://github.com/melissa0987/password-generator.git
 cd password-generator
+
 ```
 
 ### Step 2: Create a Virtual Environment (Recommended)
 ```bash 
+
 py -m venv .venv
 
 #On Windows:
 .venv\Scripts\activate
 
 
-On macOS/Linux:
+#On macOS/Linux:
 source .venv/bin/activate 
 ```
 
@@ -69,7 +72,6 @@ pip install PyQt6
 ```bash
 python main.py
 ```
-
 
 ---
 
